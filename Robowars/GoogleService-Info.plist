@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>787182810529-v37b7munpp5oapb4guu8vdmm02odda39.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.787182810529-v37b7munpp5oapb4guu8vdmm02odda39</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>787182810529-1ajtv33n0l755hlj31hesg5kvtbqi8am.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB0Ktm2nuaBvpWuTmMMd7uypBUNxYGZTnM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>787182810529</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.karakay.Robowars</string>
+	<key>PROJECT_ID</key>
+	<string>robowars-783a9</string>
+	<key>STORAGE_BUCKET</key>
+	<string>robowars-783a9.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:787182810529:ios:56a23dad6cb82f4407c7e0</string>
+	<key>DATABASE_URL</key>
+	<string>https://robowars-783a9-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

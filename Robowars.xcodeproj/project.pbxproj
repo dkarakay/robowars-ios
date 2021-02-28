@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,11 @@
 		1E9BD1C825EBE435007D92D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E9BD1C625EBE435007D92D5 /* Main.storyboard */; };
 		1E9BD1CA25EBE436007D92D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E9BD1C925EBE436007D92D5 /* Assets.xcassets */; };
 		1E9BD1CD25EBE436007D92D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E9BD1CB25EBE436007D92D5 /* LaunchScreen.storyboard */; };
+		1E9BD1D625EBE5CD007D92D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E9BD1D525EBE5CD007D92D5 /* GoogleService-Info.plist */; };
+		1EBD744825EC106B004D1F2F /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EBD744625EC106B004D1F2F /* down.png */; };
+		1EBD744925EC106B004D1F2F /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EBD744725EC106B004D1F2F /* up.png */; };
+		1EBD744D25EC1149004D1F2F /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EBD744C25EC1149004D1F2F /* stop.png */; };
+		296092D9AC22458D1ADF1E29 /* Pods_Robowars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 304D5B9583AB26E00D633F3B /* Pods_Robowars.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,13 @@
 		1E9BD1C925EBE436007D92D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E9BD1CC25EBE436007D92D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E9BD1CE25EBE436007D92D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E9BD1D525EBE5CD007D92D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1EBD744625EC106B004D1F2F /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
+		1EBD744725EC106B004D1F2F /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
+		1EBD744C25EC1149004D1F2F /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
+		304D5B9583AB26E00D633F3B /* Pods_Robowars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Robowars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C8731ED2EDBF9103337B88A /* Pods-Robowars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Robowars.debug.xcconfig"; path = "Target Support Files/Pods-Robowars/Pods-Robowars.debug.xcconfig"; sourceTree = "<group>"; };
+		92F1AE6286202DF7969AFA71 /* Pods-Robowars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Robowars.release.xcconfig"; path = "Target Support Files/Pods-Robowars/Pods-Robowars.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				296092D9AC22458D1ADF1E29 /* Pods_Robowars.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +53,11 @@
 		1E9BD1B425EBE434007D92D5 = {
 			isa = PBXGroup;
 			children = (
+				1EBD744225EC0FD1004D1F2F /* Assets */,
 				1E9BD1BF25EBE434007D92D5 /* Robowars */,
 				1E9BD1BE25EBE434007D92D5 /* Products */,
+				E98670D70146808C98808BCD /* Pods */,
+				FDA59BF306B1D6113191C884 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +72,7 @@
 		1E9BD1BF25EBE434007D92D5 /* Robowars */ = {
 			isa = PBXGroup;
 			children = (
+				1E9BD1D525EBE5CD007D92D5 /* GoogleService-Info.plist */,
 				1E9BD1C025EBE435007D92D5 /* AppDelegate.swift */,
 				1E9BD1C225EBE435007D92D5 /* SceneDelegate.swift */,
 				1E9BD1C425EBE435007D92D5 /* ViewController.swift */,
@@ -67,6 +84,33 @@
 			path = Robowars;
 			sourceTree = "<group>";
 		};
+		1EBD744225EC0FD1004D1F2F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1EBD744C25EC1149004D1F2F /* stop.png */,
+				1EBD744625EC106B004D1F2F /* down.png */,
+				1EBD744725EC106B004D1F2F /* up.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E98670D70146808C98808BCD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C8731ED2EDBF9103337B88A /* Pods-Robowars.debug.xcconfig */,
+				92F1AE6286202DF7969AFA71 /* Pods-Robowars.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FDA59BF306B1D6113191C884 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				304D5B9583AB26E00D633F3B /* Pods_Robowars.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,15 +118,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E9BD1D125EBE436007D92D5 /* Build configuration list for PBXNativeTarget "Robowars" */;
 			buildPhases = (
+				9CA6A6D184FA028E5E2D63CB /* [CP] Check Pods Manifest.lock */,
 				1E9BD1B925EBE434007D92D5 /* Sources */,
 				1E9BD1BA25EBE434007D92D5 /* Frameworks */,
 				1E9BD1BB25EBE434007D92D5 /* Resources */,
+				C8F0140B5329F1209EF3F7C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Robowars;
+			packageProductDependencies = (
+			);
 			productName = Robowars;
 			productReference = 1E9BD1BD25EBE434007D92D5 /* Robowars.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +158,8 @@
 				Base,
 			);
 			mainGroup = 1E9BD1B425EBE434007D92D5;
+			packageReferences = (
+			);
 			productRefGroup = 1E9BD1BE25EBE434007D92D5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -124,13 +174,59 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EBD744925EC106B004D1F2F /* up.png in Resources */,
 				1E9BD1CD25EBE436007D92D5 /* LaunchScreen.storyboard in Resources */,
+				1E9BD1D625EBE5CD007D92D5 /* GoogleService-Info.plist in Resources */,
+				1EBD744D25EC1149004D1F2F /* stop.png in Resources */,
 				1E9BD1CA25EBE436007D92D5 /* Assets.xcassets in Resources */,
 				1E9BD1C825EBE435007D92D5 /* Main.storyboard in Resources */,
+				1EBD744825EC106B004D1F2F /* down.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9CA6A6D184FA028E5E2D63CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Robowars-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8F0140B5329F1209EF3F7C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Robowars/Pods-Robowars-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Robowars/Pods-Robowars-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Robowars/Pods-Robowars-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1E9BD1B925EBE434007D92D5 /* Sources */ = {
@@ -283,6 +379,7 @@
 		};
 		1E9BD1D225EBE436007D92D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C8731ED2EDBF9103337B88A /* Pods-Robowars.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +399,7 @@
 		};
 		1E9BD1D325EBE436007D92D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92F1AE6286202DF7969AFA71 /* Pods-Robowars.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
