@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var switchLabel: UILabel!
     @IBOutlet var motorStatusImage: UIImageView!
     @IBOutlet var degreeSlider: MSCircularSlider!
+    @IBOutlet var upButton: UIButton!
+    @IBOutlet var downButton: UIButton!
     
     var ref: Firebase.DatabaseReference!
     var motorStatus: Bool = false
@@ -36,9 +38,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         loadingIndicator.startAnimating()
+        
         ref = Database.database().reference()
         readData()
         
+        degreeSlider.isEnabled = false
+        downButton.isEnabled = false
+        motorButton.isEnabled = false
+        upButton.isEnabled = false
         
         let seconds = 2.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
@@ -61,37 +68,14 @@ class ViewController: UIViewController {
             
             self.firstTime = false
             
+            self.degreeSlider.isEnabled = true
+            self.downButton.isEnabled = true
+            self.motorButton.isEnabled = true
+            self.upButton.isEnabled = true
             
         }
         
         
-        
-        
-        
-        //let(angle, direction) = readData()
-        
-        /*
-         
-         if let sAngle = angle{
-         degreeSlider.currentValue = Double(sAngle)!
-         }
-         
-         if direction == "forward"{
-         motorStatus = updateMotorButton(state: true)
-         motorStatusImage.tintColor = UIColor.green
-         }else if direction == "backward"{
-         motorStatus = updateMotorButton(state: true)
-         motorStatusImage.tintColor = UIColor.yellow
-         }else{
-         motorStatus = updateMotorButton(state: false)
-         motorStatusImage.tintColor = UIColor.red
-         
-         }
-         */
-        
-        
-        
-        //motorStatus = updateMotorButton(state: motorStatus)
         super.viewDidLoad()
         
     }
