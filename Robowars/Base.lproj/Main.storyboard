@@ -18,27 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nk0-04-5tJ">
-                                <rect key="frame" x="619" y="102" width="80" height="80"/>
+                                <rect key="frame" x="619" y="62" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="up.png"/>
                                 <connections>
                                     <action selector="upButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GQI-bv-y5N"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YU4-XI-OAN">
-                                <rect key="frame" x="382" y="176" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="stop.png"/>
-                                <connections>
-                                    <action selector="stopButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JsA-y6-6Bg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0MW-5P-lc7">
-                                <rect key="frame" x="619" y="238" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="down.png"/>
-                                <connections>
-                                    <action selector="downButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jQA-yC-X6L"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Robowars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZF-el-sTu">
@@ -102,23 +86,76 @@
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" name="AccentColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Motor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsB-Tu-5x6">
+                                <rect key="frame" x="358" y="268" width="129" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tL-Me-ulZ">
+                                <rect key="frame" x="386" y="297" width="72" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="OFF">
+                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="motorButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Ue-VP-rbo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0MW-5P-lc7">
+                                <rect key="frame" x="619" y="228" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="down.png"/>
+                                <connections>
+                                    <action selector="downButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jQA-yC-X6L"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GbA-tD-7dB">
+                                <rect key="frame" x="752" y="169" width="54" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="degreeLabel" destination="S8R-JK-4aK" id="kGs-Bt-c75"/>
-                        <outlet property="slider" destination="iba-Nt-Y0B" id="IY2-4s-5Dw"/>
+                        <outlet property="degreeSlider" destination="iba-Nt-Y0B" id="FJg-Cs-6Sn"/>
+                        <outlet property="motorButton" destination="9tL-Me-ulZ" id="PSj-Sh-bVX"/>
+                        <outlet property="motorStatusImage" destination="GbA-tD-7dB" id="Rsc-da-Qej"/>
+                        <outlet property="switchLabel" destination="rsB-Tu-5x6" id="AYy-UM-TTZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="19.90521327014218" y="76.92307692307692"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="s2h-Wk-iOt">
+            <objects>
+                <viewController id="B2T-BB-sCN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SmE-Iy-hK1">
+                        <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="94x-YJ-Ock" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-75" y="-489"/>
+        </scene>
     </scenes>
+    <designables>
+        <designable name="iba-Nt-Y0B">
+            <size key="intrinsicContentSize" width="154" height="154"/>
+        </designable>
+    </designables>
     <resources>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="down.png" width="80" height="80"/>
-        <image name="stop.png" width="80" height="80"/>
         <image name="up.png" width="80" height="80"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
