@@ -117,6 +117,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="bFZ-dt-GIn">
+                                <rect key="frame" x="399" y="149" width="46" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -124,6 +128,7 @@
                     <connections>
                         <outlet property="degreeLabel" destination="S8R-JK-4aK" id="kGs-Bt-c75"/>
                         <outlet property="degreeSlider" destination="iba-Nt-Y0B" id="FJg-Cs-6Sn"/>
+                        <outlet property="loadingIndicator" destination="bFZ-dt-GIn" id="8Hy-Fu-CxI"/>
                         <outlet property="motorButton" destination="9tL-Me-ulZ" id="PSj-Sh-bVX"/>
                         <outlet property="motorStatusImage" destination="GbA-tD-7dB" id="Rsc-da-Qej"/>
                         <outlet property="switchLabel" destination="rsB-Tu-5x6" id="AYy-UM-TTZ"/>
@@ -131,21 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="19.90521327014218" y="76.92307692307692"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="s2h-Wk-iOt">
-            <objects>
-                <viewController id="B2T-BB-sCN" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SmE-Iy-hK1">
-                        <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="94x-YJ-Ock" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-75" y="-489"/>
+            <point key="canvasLocation" x="294.31279620853081" y="-698.46153846153845"/>
         </scene>
     </scenes>
     <designables>

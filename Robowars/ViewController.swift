@@ -9,9 +9,16 @@ import UIKit
 import Firebase
 import MSCircularSlider
 
+extension String {
+    func toDouble() -> Double? {
+        return NumberFormatter().number(from: self)?.doubleValue
+    }
+}
+
 class ViewController: UIViewController {
     
     
+    @IBOutlet var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var motorButton: UIButton!
     @IBOutlet weak var degreeLabel: UILabel!
     @IBOutlet weak var switchLabel: UILabel!
@@ -20,11 +27,70 @@ class ViewController: UIViewController {
     
     var ref: Firebase.DatabaseReference!
     var motorStatus: Bool = false
+    var firstTime: Bool = true
+    var firstAngle: Double = 0.0
+    var firstDirection: String = "s"
+    
     let parentName: String = "robowars_deniz"
     
+    
     override func viewDidLoad() {
+        loadingIndicator.startAnimating()
         ref = Database.database().reference()
         readData()
+        
+        
+        let seconds = 2.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            self.loadingIndicator.isHidden = true
+            
+            self.degreeSlider.currentValue = self.firstAngle
+            
+            
+            if self.firstDirection == "forward"{
+                self.motorStatus = self.updateMotorButton(state: true)
+                self.motorStatusImage.tintColor = UIColor.green
+            }else if self.firstDirection == "backward"{
+                self.motorStatus = self.updateMotorButton(state: true)
+                self.motorStatusImage.tintColor = UIColor.yellow
+            }else{
+                self.motorStatus = self.updateMotorButton(state: false)
+                self.motorStatusImage.tintColor = UIColor.red
+                
+            }
+            
+            self.firstTime = false
+            
+            
+        }
+        
+        
+        
+        
+        
+        //let(angle, direction) = readData()
+        
+        /*
+         
+         if let sAngle = angle{
+         degreeSlider.currentValue = Double(sAngle)!
+         }
+         
+         if direction == "forward"{
+         motorStatus = updateMotorButton(state: true)
+         motorStatusImage.tintColor = UIColor.green
+         }else if direction == "backward"{
+         motorStatus = updateMotorButton(state: true)
+         motorStatusImage.tintColor = UIColor.yellow
+         }else{
+         motorStatus = updateMotorButton(state: false)
+         motorStatusImage.tintColor = UIColor.red
+         
+         }
+         */
+        
+        
+        
         //motorStatus = updateMotorButton(state: motorStatus)
         super.viewDidLoad()
         
@@ -58,7 +124,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sliderValueChanged(_ sender: Any) {
-        if checkMotorState(){
+        if firstTime || checkMotorState(){
             let current = String(degreeSlider.currentValue)
             degreeLabel.text = current
             
@@ -106,11 +172,22 @@ class ViewController: UIViewController {
         
     }
     
+    
     func readData(){
-        ref.child(parentName).observeSingleEvent(of: .childAdded, with: { (snapshot) in
-            if let userDict = snapshot.value as? [String:Any] {
-                //Do not cast print it directly may be score is Int not string
-                print(userDict)
+        var angle: Double = -1.1
+        var direction: String = "stop"
+        
+        ref.child(parentName).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let value = snapshot.value as? NSDictionary{
+                angle = (value["angle"] as! String).toDouble()!
+                direction = value["direction"] as! String
+                
+                print(angle)
+                print(direction)
+                self.firstAngle = angle
+                self.firstDirection = direction
+                
+                
             }
         })
         
