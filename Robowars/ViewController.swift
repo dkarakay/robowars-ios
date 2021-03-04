@@ -30,9 +30,11 @@ class ViewController: UIViewController {
     
     var ref: Firebase.DatabaseReference!
     var motorStatus: Bool = false
+    
     var firstTime: Bool = true
     var firstAngle: Double = 0.0
     var firstDirection: String = "s"
+    var firstMotorState: Bool = false
     
     let parentName: String = "robowars_deniz"
     
@@ -57,6 +59,9 @@ class ViewController: UIViewController {
             // Update angle value
             self.degreeSlider.currentValue = self.firstAngle
             
+            // Update motor state
+            self.motorStatus = self.firstMotorState
+            
             // Update motor status
             if self.firstDirection == "forward"{
                 self.motorStatus = self.updateMotorButton(state: true)
@@ -78,19 +83,61 @@ class ViewController: UIViewController {
             self.motorButton.isEnabled = true
             self.upButton.isEnabled = true
             
+            // Long press gesture
+            self.addLongPressGesture()
         }
         
-        
         super.viewDidLoad()
+        
+    }
+    
+    // Adding long press
+    func addLongPressGesture(){
+        let longPressUpButton = UILongPressGestureRecognizer(target: self, action: #selector(longPressUpButton(gesture:)))
+        longPressUpButton.minimumPressDuration = 0
+        self.upButton.addGestureRecognizer(longPressUpButton)
+        
+        
+        let longPressDownButton = UILongPressGestureRecognizer(target: self, action: #selector(longPressDownButton(gesture:)))
+        longPressDownButton.minimumPressDuration = 0
+        self.downButton.addGestureRecognizer(longPressDownButton)
+    }
+    
+    // Long press up button
+    @objc func longPressUpButton(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began && checkMotorState()  {
+            motorStatusImage.tintColor = UIColor.green
+            sendData(childName: "direction", childValue: "forward")
+            
+        }else {
+            motorStatusImage.tintColor = UIColor.red
+            sendData(childName: "direction", childValue: "none")
+            
+        }
+    }
+    
+    // Long press down button
+    @objc func longPressDownButton(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began && checkMotorState() {
+            motorStatusImage.tintColor = UIColor.yellow
+            sendData(childName: "direction", childValue: "backward")
+            
+        }else {
+            motorStatusImage.tintColor = UIColor.red
+            sendData(childName: "direction", childValue: "none")
+            
+        }
         
     }
     
     // If you click motor button
     @IBAction func motorButtonClick(_ sender: Any) {
         if !motorStatus{
+            sendData(childName: "motor_state", childValue: "running")
             motorStatus = updateMotorButton(state: true)
         }else{
-            sendData(childName: "direction", childValue: "stop")
+            sendData(childName: "direction", childValue: "none")
+            sendData(childName: "motor_state", childValue: "stopping")
             sendData(childName: "angle", childValue: "0")
             motorStatusImage.tintColor = UIColor.red
             degreeSlider.currentValue = 0
@@ -98,21 +145,6 @@ class ViewController: UIViewController {
         }
     }
     
-    // If you click up button
-    @IBAction func upButtonClick(_ sender: Any) {
-        if checkMotorState(){
-            motorStatusImage.tintColor = UIColor.green
-            sendData(childName: "direction", childValue: "forward")
-        }
-    }
-    
-    // If you click down button
-    @IBAction func downButtonClick(_ sender: Any) {
-        if checkMotorState(){
-            motorStatusImage.tintColor = UIColor.yellow
-            sendData(childName: "direction", childValue: "backward")
-        }
-    }
     
     // If slider value changed
     @IBAction func sliderValueChanged(_ sender: Any) {
@@ -161,16 +193,14 @@ class ViewController: UIViewController {
     
     // Sending data to Firebase
     func sendData(childName: String, childValue:String){
-        
         ref.child(parentName).child(childName).setValue(childValue)
-        
-        
     }
     
     // Reading data from Firebase
     func readData(){
         var angle: Double = -1.1
-        var direction: String = "stop"
+        var direction: String = "none"
+        var motorState: String = "running"
         
         ref.child(parentName).observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value as? NSDictionary{
@@ -178,14 +208,17 @@ class ViewController: UIViewController {
                 // Getting angle & direction from Firebase
                 angle = (value["angle"] as! String).toDouble()!
                 direction = value["direction"] as! String
-                
-                // Debug
-                print(angle)
-                print(direction)
+                motorState = value["motor_state"] as! String
                 
                 self.firstAngle = angle
                 self.firstDirection = direction
                 
+                if motorState == "running"{
+                    self.firstMotorState = true
+                }else{
+                    self.firstMotorState = false
+                    
+                }
                 
             }
         })
