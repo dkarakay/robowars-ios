@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     var motorStatus: Bool = false
     
     var firstTime: Bool = true
-    var firstAngle: Double = 0.0
+    var firstAngle: Int = 0
     var firstDirection: String = "s"
     var firstMotorState: Bool = false
     
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
             self.loadingIndicator.isHidden = true
             
             // Update angle value
-            self.degreeSlider.currentValue = self.firstAngle
+            self.degreeSlider.currentValue = Double(self.firstAngle)
             
             // Update motor state
             self.motorStatus = self.firstMotorState
@@ -152,7 +152,7 @@ class ViewController: UIViewController {
             let current = String(degreeSlider.currentValue)
             degreeLabel.text = current
             
-            sendData(childName: "angle", childValue: current)
+            sendData(childName: "angle", childValue: current, isFloat: true)
         }
     }
     
@@ -174,7 +174,6 @@ class ViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
-        
         self.present(alert, animated: true)
     }
     
@@ -192,13 +191,18 @@ class ViewController: UIViewController {
     }
     
     // Sending data to Firebase
-    func sendData(childName: String, childValue:String){
-        ref.child(parentName).child(childName).setValue(childValue)
+    func sendData(childName: String, childValue:String, isFloat:Bool = false){
+        if isFloat {
+            let childInt:Float = Float(childValue) ?? 0
+            ref.child(parentName).child(childName).setValue(childInt)
+        }else{
+            ref.child(parentName).child(childName).setValue(childValue)
+        }
     }
     
     // Reading data from Firebase
     func readData(){
-        var angle: Double = -1.1
+        var angle: Int = 0
         var direction: String = "none"
         var motorState: String = "running"
         
@@ -206,7 +210,7 @@ class ViewController: UIViewController {
             if let value = snapshot.value as? NSDictionary{
                 
                 // Getting angle & direction from Firebase
-                angle = (value["angle"] as! String).toDouble()!
+                angle = value["angle"] as! Int
                 direction = value["direction"] as! String
                 motorState = value["motor_state"] as! String
                 
