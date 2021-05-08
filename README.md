@@ -1,6 +1,6 @@
 # Robowars iOS App
 
-## [Robowars Raspberry](https://github.com/dkarakay/robowars-raspberry)
+### [For Raspberry part](https://github.com/dkarakay/robowars-raspberry)
 
 ## Run
 - Execute ```pod install```
