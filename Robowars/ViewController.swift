@@ -9,13 +9,6 @@ import UIKit
 import Firebase
 import MSCircularSlider
 
-// Converting String to Double
-extension String {
-    func toDouble() -> Double? {
-        return NumberFormatter().number(from: self)?.doubleValue
-    }
-}
-
 class ViewController: UIViewController {
     
     
@@ -30,14 +23,13 @@ class ViewController: UIViewController {
     
     var ref: Firebase.DatabaseReference!
     var motorStatus: Bool = false
-    
+
     var firstTime: Bool = true
     var firstAngle: Int = 0
     var firstDirection: String = "s"
     var firstMotorState: Bool = false
     
     let parentName: String = "robowars_deniz"
-    
     
     override func viewDidLoad() {
         loadingIndicator.startAnimating()
