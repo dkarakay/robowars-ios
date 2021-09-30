@@ -18,5 +18,5 @@ The countdown has begun for the Robowars.dev robotics competition, where the mob
 - Run the app 🚀
 
 
-## From the Robowars 2021:
+## From Robowars 2021:
 [![Robowars 2021 - Live Stream](https://img.youtube.com/vi/7aZc2rPLXEY/0.jpg)](https://www.youtube.com/watch?v=7aZc2rPLXEY)
